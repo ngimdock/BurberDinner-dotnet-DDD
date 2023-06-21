@@ -5,8 +5,18 @@ POST {{host}}/auth/register
 Content-Type: application/json
 
 {
-  "firstname": "Ngimdock",
+  "firstname": "Ngimdock2",
   "lastname": "Zemfack",
+  "email": "ngimdock@gmail.com",
+  "password": "000000"
+}
+
+###
+
+POST {{host}}/auth/login
+Content-Type: application/json
+
+{
   "email": "ngimdock@gmail.com",
   "password": "000000"
 }
