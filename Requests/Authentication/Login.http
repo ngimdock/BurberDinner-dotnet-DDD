@@ -1,12 +1,10 @@
 
 @host=https://localhost:5001
 
-POST {{host}}/auth/register
+POST {{host}}/auth/login
 Content-Type: application/json
 
 {
-  "firstname": "Ngimdock2",
-  "lastname": "Zemfack",
   "email": "ngimdock@gmail.com",
   "password": "000000"
 }
