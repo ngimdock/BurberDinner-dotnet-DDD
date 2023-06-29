@@ -11,4 +11,10 @@
     <ProjectReference Include="..\BurberDinner.Application\BurberDinner.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.IdentityModel.tokens" Version="6.31.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.31.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+  </ItemGroup>
+
 </Project>

@@ -1,3 +1,6 @@
+using System;
+
+using BurberDinner.Application.Common.Interfaces.Authentication;
 
 namespace BurberDinner.Application.Services.Authentication;
 
@@ -5,10 +8,22 @@ namespace BurberDinner.Application.Services.Authentication;
 public class AuthenticationService : IAuthenticationService
 {
 
+  // private readonly IJwtTokenGenerator _jwtTokenGenerator;
+
+  // public AuthenticationService(IJwtTokenGenerator jwtTokenGenerator)
+  // {
+  //   _jwtTokenGenerator = jwtTokenGenerator;
+  // }
+
   public AuthenticationResult Register(string firstname, string lastname, string email, string password)
   {
+
+    Guid userId = new Guid();
+
+    // var token = _jwtTokenGenerator.GenerateToken(userId, firstname, lastname);
+
     return new AuthenticationResult(
-      new Guid(), 
+     userId,
       firstname, 
       lastname, 
       email, 
