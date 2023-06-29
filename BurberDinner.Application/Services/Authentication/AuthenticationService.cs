@@ -1,6 +1,7 @@
 using BurberDinner.Application.Common.Interfaces.Authentication;
 using BurberDinner.Application.Common.Interfaces.Persistence;
 using BurberDinner.Domain.entities;
+using BurberDinner.Application.Common.Errors;
 
 namespace BurberDinner.Application.Services.Authentication;
 
@@ -29,7 +30,7 @@ public class AuthenticationService : IAuthenticationService
     var userExists =  _userRepository.GetUserByEmail(email);
 
     if(userExists is not null) 
-      throw new Exception("User with given exception already exists.");
+      throw new Exception("User with given email already exists.");
     
 
     var newUser = new User(
