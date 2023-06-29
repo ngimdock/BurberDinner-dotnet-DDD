@@ -1,3 +1,4 @@
+using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
@@ -9,10 +10,16 @@ public class ErrorHandlerFilterAttribute: ExceptionFilterAttribute {
 
     var exception = context.Exception;
 
-    context.Result = new ObjectResult(new { error = exception.Message })
+    var problemDetails = new ProblemDetails
     {
-      StatusCode = 500
+      Type = "https://link-to-http-500-exception",
+      Title = "An error occured while processing your request.",
+      Detail = exception.Message,
+      Status = (int)HttpStatusCode.InternalServerError,
+      Instance = context.RouteData.ToString(),
     };
+
+    context.Result = new ObjectResult(problemDetails);
 
     context.ExceptionHandled = true;
   }
