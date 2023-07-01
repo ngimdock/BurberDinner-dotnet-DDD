@@ -15,13 +15,11 @@ public static class DependencyInjection {
     services.AddScoped<RegisterCommandHandler, RegisterCommandHandler>();
     services.AddScoped<LoginQueryHandler, LoginQueryHandler>();
 
-    services.AddScoped<
-      IPipelineBehavior<RegisterCommand, AuthenticationResult>,
-      ValidateRegisterCommandBehavior
-    >();
+    services.AddScoped(
+      typeof(IPipelineBehavior<,>),
+      typeof(ValidationBehavior<,>)
+    );
     
-    services.AddScoped<IValidator<RegisterCommand>, RegisterCommandValidator>();
-
     // services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
     // install package FluentValidation.AspNetCore pour importer AddValidatorsFromAssembly
 

@@ -2,6 +2,7 @@ using FluentValidation;
 
 namespace BurberDinner.Application.Authentication.Commands.Register;
 
+// This is and application layer validation and we also have a domain layer validation
 public class RegisterCommandValidator: AbstractValidator<RegisterCommand> {
 
   public RegisterCommandValidator() {
