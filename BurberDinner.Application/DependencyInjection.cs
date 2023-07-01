@@ -21,7 +21,7 @@ public static class DependencyInjection {
     );
     
     // services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-    // install package FluentValidation.AspNetCore pour importer AddValidatorsFromAssembly
+    //@TODO install package FluentValidation.AspNetCore pour importer AddValidatorsFromAssembly
 
     return services;
   }

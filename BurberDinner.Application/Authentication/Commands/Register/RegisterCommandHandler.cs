@@ -26,9 +26,9 @@ public class RegisterCommandHandler
 
     await Task.CompletedTask;
     
-    var userExists =  _userRepository.GetUserByEmail(command.Email);
+    var user =  _userRepository.GetUserByEmail(command.Email);
 
-    if(userExists is not null) 
+    if(user is not null) 
       throw new Exception("User with given email already exists.");
     
 

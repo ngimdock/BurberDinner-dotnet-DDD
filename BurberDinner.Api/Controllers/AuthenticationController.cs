@@ -9,7 +9,7 @@ namespace BuberDinner.Api.Controllers;
 
 [ApiController]
 [Route("auth")]
-public class AuthenticationController: ControllerBase {
+public class AuthenticationController: ApiController {
 
   // private readonly ISender _mediator;
   private readonly RegisterCommandHandler _registerCommandHandler;
