@@ -1,5 +1,5 @@
 // using BurberDinner.Api.Middlewares;
-using BurberDinner.Api.Filters;
+using BurberDinner.Api;
 using BurberDinner.Application;
 using BurberDinner.Infrastructure;
 
@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 {
     builder.Services
+        .AddPresentation()
         .AddApplication()
         .AddInfrastructure(builder.Configuration);
 

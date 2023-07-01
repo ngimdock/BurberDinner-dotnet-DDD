@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 
 using BuberDinner.Contracts.Authentication;
-using MediatR;
 using BurberDinner.Application.Authentication.Commands.Register;
 using BurberDinner.Application.Authentication.Queries.Login;
+using MapsterMapper;
 
 namespace BuberDinner.Api.Controllers;
 
@@ -12,41 +12,32 @@ namespace BuberDinner.Api.Controllers;
 public class AuthenticationController: ControllerBase {
 
   // private readonly ISender _mediator;
-
-
   private readonly RegisterCommandHandler _registerCommandHandler;
   private readonly LoginQueryHandler _loginQueryHandler;
+
+  private readonly IMapper _mapper;
   public AuthenticationController(
     // ISender mediator,
     RegisterCommandHandler registerCommandHandler,
-    LoginQueryHandler loginQueryHandler
+    LoginQueryHandler loginQueryHandler,
+    IMapper mapper
   ) {
 
     // _mediator = mediator;
     _registerCommandHandler = registerCommandHandler;
     _loginQueryHandler = loginQueryHandler;
+    _mapper = mapper;
   }
 
   [HttpPost("register")]
   public async Task<IActionResult> Register(RegisterRequest request){
  
-    var command = new RegisterCommand(
-      FisrtName: request.Firstname,
-      LastName: request.Lastname,
-      Email: request.Email,
-      Password: request.Password
-      );
-
+    var command = _mapper.Map<RegisterCommand>(request);
     // var authResult = await _mediator.Send(command);
 
     var authResult = await _registerCommandHandler.Handle(command);
 
-    var response = new AuthenticationResponse(
-      authResult.user.Id, 
-      authResult.user.FirstName, 
-      authResult.user.LastName, 
-      authResult.user.Email, 
-      authResult.Token);
+    var response = _mapper.Map<AuthenticationResponse>(authResult);
     
     return Ok(response);
   }
@@ -54,16 +45,11 @@ public class AuthenticationController: ControllerBase {
   [HttpPost("login")]
   public async Task<IActionResult> Login(LoginRequest request) {
 
-    var query = new LoginQuery(request.Email, request.Password);
+    var query = _mapper.Map<LoginQuery>(request);
 
     var authResult = await _loginQueryHandler.Handle(query);
 
-    var response = new AuthenticationResponse(
-      authResult.user.Id, 
-      authResult.user.FirstName, 
-      authResult.user.LastName, 
-      authResult.user.Email, 
-      authResult.Token);
+    var response = _mapper.Map<AuthenticationResponse>(authResult);
     
     return Ok(response);
   }

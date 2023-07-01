@@ -1,5 +1,4 @@
 
-using MediatR;
 using BurberDinner.Application.Authentication.Common;
 using BurberDinner.Application.Common.Interfaces.Persistence;
 using BurberDinner.Application.Common.Interfaces.Authentication;
@@ -20,6 +19,7 @@ public class LoginQueryHandler
   }
   public async Task<AuthenticationResult> Handle(LoginQuery query)
   {
+    await Task.CompletedTask;
     
     var user = _userRepository.GetUserByEmail(query.Email);
 

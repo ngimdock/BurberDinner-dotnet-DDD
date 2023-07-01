@@ -23,6 +23,9 @@ public class RegisterCommandHandler
   public async Task<AuthenticationResult> Handle(
     RegisterCommand command)
   {
+
+    await Task.CompletedTask;
+    
     var userExists =  _userRepository.GetUserByEmail(command.Email);
 
     if(userExists is not null) 
