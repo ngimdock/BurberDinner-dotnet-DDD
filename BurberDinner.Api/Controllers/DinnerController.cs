@@ -1,16 +1,14 @@
-
-
-
 using Microsoft.AspNetCore.Mvc;
-
 namespace BurberDinner.Api.Controllers;
 
-[Route("dinners")]
+[Route("[controller]")]
 public class DinnerController: ApiController {
 
   
-  [HttpGet()]
+  [HttpGet]
   public IActionResult ListDinner() {
+
+    Console.WriteLine("Inter here..");
 
     return Ok(Array.Empty<string>());
   }
