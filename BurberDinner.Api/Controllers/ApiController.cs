@@ -6,7 +6,6 @@ namespace BurberDinner.Api.Controllers;
 
 
 [ApiController]
-[Authorize]
 public class ApiController: ControllerBase {
 
 }

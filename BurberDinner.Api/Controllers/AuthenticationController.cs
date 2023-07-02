@@ -5,6 +5,7 @@ using BurberDinner.Application.Authentication.Commands.Register;
 using BurberDinner.Application.Authentication.Queries.Login;
 using MapsterMapper;
 using Microsoft.AspNetCore.Authorization;
+using BurberDinner.Api.Controllers;
 
 namespace BuberDinner.Api.Controllers;
 

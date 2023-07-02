@@ -1,4 +1,6 @@
 
+using BurberDinner.Api.Common.Mapping;
+
 namespace BurberDinner.Api;
 
 public static class DependencyInjection {

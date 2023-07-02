@@ -7,7 +7,7 @@ using BurberDinner.Infrastructure.services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using BurberDinner.Application.Common.Interfaces.Persistence;
-
+using Microsoft.Extensions.Options;
 
 namespace BurberDinner.Infrastructure;
 
@@ -31,23 +31,24 @@ public static class DependencyInjection {
     var jwtSettings = new JwtSettings();
     configuration.Bind(JwtSettings.Servicename, jwtSettings);
 
-    services.AddSingleton(Options.Create(jwtSettings));
     services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
+    
+    services.AddSingleton(Options.Create(jwtSettings));
 
 
-    services.AddAuthentication(defaultScheme: "Bearer")
-      .AddJwtBearer(options => options.TokenValidationParameters = new TokenValidation()
-      {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLiveTime = true,
-        ValidateIssuerSingningKey = true,
-        ValidIssuer = jwtSettings.Issuer,
-        ValidAudience = jwtSettings.Audience,
-        IsuerSingingKey = new SymmetricSecurityKey(
-          Encoding.UTF8.GetBytes(jwtSettings.Secret)
-        )
-      });
+    // services.AddAuthentication(defaultScheme: "Bearer")
+    //   .AddJwtBearer(options => options.TokenValidationParameters = new TokenValidation()
+    //   {
+    //     ValidateIssuer = true,
+    //     ValidateAudience = true,
+    //     ValidateLiveTime = true,
+    //     ValidateIssuerSingningKey = true,
+    //     ValidIssuer = jwtSettings.Issuer,
+    //     ValidAudience = jwtSettings.Audience,
+    //     IsuerSingingKey = new SymmetricSecurityKey(
+    //       Encoding.UTF8.GetBytes(jwtSettings.Secret)
+    //     )
+    //   });
 
     return services;
   }
