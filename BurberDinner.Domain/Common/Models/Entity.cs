@@ -1,6 +1,4 @@
 
-
-
 namespace BurberDinner.Domain.Common.Models;
 
 

@@ -1,5 +1,3 @@
-using System;
-
 
 namespace BurberDinner.Domain.Common.Models;
 
