@@ -1,5 +1,6 @@
 using BurberDinner.Domain.Bill.ValueObjects;
 using BurberDinner.Domain.Common.Models;
+using BurberDinner.Domain.Common.ValueObjects;
 using BurberDinner.Domain.Dinners.ValueObjects;
 using BurberDinner.Domain.Guest.ValueObjects;
 using BurberDinner.Domain.Host.ValueObjects;

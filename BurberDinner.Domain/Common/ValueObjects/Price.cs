@@ -3,7 +3,7 @@
 
 using BurberDinner.Domain.Common.Models;
 
-namespace BurberDinner.Domain.Bill.ValueObjects;
+namespace BurberDinner.Domain.Common.ValueObjects;
 
 public sealed class Price: ValueObject {
 

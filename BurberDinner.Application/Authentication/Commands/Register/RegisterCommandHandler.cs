@@ -30,6 +30,8 @@ public class RegisterCommandHandler
 
     if(user is not null) 
       throw new Exception("User with given email already exists.");
+
+      
     
 
     var newUser = new User(
