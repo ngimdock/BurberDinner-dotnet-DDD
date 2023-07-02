@@ -37,20 +37,3 @@ public abstract class ValueObject: IEquatable<ValueObject> {
     return Equals((object?)other);
   }
 }
-
-public class Price: ValueObject {
-  public decimal Amount { get; private set; }
-  public decimal Currency { get; private set; }
-
-
-  public Price(decimal amount, decimal currentcy) {
-    Amount = amount;
-    Currency = currentcy;
-  }
-
-  public override IEnumerable<object> GetEqualityComponents()
-  {
-    yield return Amount;
-    yield return Currency;
-  }
-}

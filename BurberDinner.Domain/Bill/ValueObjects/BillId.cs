@@ -1,6 +1,3 @@
-
-
-
 using BurberDinner.Domain.Common.Models;
 
 namespace BurberDinner.Domain.Bill.ValueObjects;

@@ -43,7 +43,7 @@ public sealed class MenuReview : AggregateRoot<MenuReviewId>
   }
 
   public static MenuReview Create(
-    float ratingValue,
+    Rating rating,
     string comment,
     HostId hostId,
     MenuId menuId,
@@ -52,7 +52,7 @@ public sealed class MenuReview : AggregateRoot<MenuReviewId>
 
     return new MenuReview(
       MenuReviewId.CreateUnique(),
-      Rating.Create(ratingValue),
+      rating,
       comment,
       hostId,
       menuId,
