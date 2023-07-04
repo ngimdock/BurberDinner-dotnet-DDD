@@ -1,4 +1,3 @@
-using System.Text;
 
 using BurberDinner.Application.Common.Interfaces.Authentication;
 using BurberDinner.Application.Common.Interfaces.services;
@@ -17,11 +16,21 @@ public static class DependencyInjection {
       this IServiceCollection services, 
       ConfigurationManager configuration) {
 
-    services.AddAuth(configuration);
+    services.AddAuth(configuration)
+            .AddPersistence();
+
+
     services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
-    services.AddSingleton<IUserRepository, UserRepository>();
     return services;
   }
+
+    public static IServiceCollection AddPersistence(
+      this IServiceCollection services) {
+
+      services.AddSingleton<IUserRepository, UserRepository>();
+      services.AddSingleton<IMenuRepository, MenuRepository>();
+      return services;
+    }
 
    public static IServiceCollection AddAuth(
       this IServiceCollection services, 

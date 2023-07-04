@@ -18,7 +18,10 @@ class Menu
   "id": { "value": "00000000-0000" },
   "name": "Yummy Menu",
   "description": "A menu with yummy food",
-  "averageRating": 4.5,
+  "averageRating": {
+    "value": 4.5,
+    "numRatings": 43
+  },
   "sections": [
     {
       "id": { "value": "00000000-0000" },
