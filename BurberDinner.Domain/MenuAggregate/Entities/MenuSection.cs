@@ -12,21 +12,27 @@ public sealed class MenuSection : Entity<MenuSectionId>
   private MenuSection(
     MenuSectionId menuItemId,
     string name,
-    string description) 
+    string description,
+    List<MenuItem> menuItems) 
     : base(menuItemId)
   {
     Name = name;
     Description = description;
+    _items = menuItems;
   }
   public static MenuSection Create(
     string name,
-    string description) {
-
-    MenuSectionId newMenuSectionId = MenuSectionId.CreateUnique();
+    string description,
+    List<MenuItem>? menuItems) {
 
     return new MenuSection(
-      newMenuSectionId,
+      MenuSectionId.CreateUnique(),
       name,
-      description);
+      description,
+      menuItems is not null ? menuItems: new());
+  }
+
+  public void AddItem(MenuItem menuItem) {
+    _items.Add(menuItem);
   }
 }

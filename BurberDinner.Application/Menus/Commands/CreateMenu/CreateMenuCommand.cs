@@ -1,15 +1,13 @@
 
-using BurberDinner.Domain.Menu;
-using MediatR;
 
-namespace BurberDinner.Application.Menus.Commands;
+namespace BurberDinner.Application.Menus.Commands.CreateMenu;
 
 public record CreateMenuCommand(
   string HostId,
   string Name,
   string Description,
   List<MenuSectionCommand> Sections
-): IRequest<Menu>;
+);
 
 public record MenuSectionCommand(
   string Name,

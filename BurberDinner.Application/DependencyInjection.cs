@@ -1,6 +1,7 @@
 using BurberDinner.Application.Authentication.Commands.Register;
 using BurberDinner.Application.Authentication.Common;
 using BurberDinner.Application.Authentication.Queries.Login;
+using BurberDinner.Application.Menus.Commands.CreateMenu;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,6 +15,7 @@ public static class DependencyInjection {
 
     services.AddScoped<RegisterCommandHandler, RegisterCommandHandler>();
     services.AddScoped<LoginQueryHandler, LoginQueryHandler>();
+    services.AddScoped<CreateMenuCommandHandler, CreateMenuCommandHandler>();
 
     services.AddScoped(
       typeof(IPipelineBehavior<,>),

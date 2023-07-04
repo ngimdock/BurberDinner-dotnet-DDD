@@ -2,7 +2,7 @@
 @host=https://localhost:5001
 @token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMmVkYjcwYi1lZTJjLTQwOTktOTNlMC00OTMwZTQwNTQxYzkiLCJmaXJzdG5hbWUiOiJOZ2ltZG9jayIsImxhc3RuYW1lIjoiWmVtZmFjayIsImlhdCI6MTUxNjIzOTAyMn0._ljbep8a5fyLKm2VdJRELH9J8xobTqDwJ5zneQ4aVwg
 
-@hostId=1
+@hostId=11111111-1111-1111-1111-111111111111
 POST {{host}}/hosts/{{hostId}}/menus
 Content-Type: application/json
 

@@ -1,26 +1,39 @@
 
 using BurberDinner.Application.Common.Interfaces.Persistence;
-using BurberDinner.Application.Menus.Commands;
+using BurberDinner.Domain.HostAggregate.ValueObjects;
 using BurberDinner.Domain.Menu;
-using MediatR;
+using BurberDinner.Domain.MenuAggregate.Entities;
 
 namespace BurberDinner.Application.Menus.Commands.CreateMenu;
 
-public class CreateMenuCommandHandler
-{
+public class CreateMenuCommandHandler{
+
   private readonly IMenuRepository _menuRepository;
+
   public CreateMenuCommandHandler(IMenuRepository menuRepository) {
     _menuRepository = menuRepository;
   }
 
-  public Task<Menu> Handle(CreateMenuCommand command)
+  public async Task<Menu> Handle(CreateMenuCommand command)
   {
+    await Task.CompletedTask;
 
-    // create menu
+    List<MenuSection> menuSections = command.Sections.ConvertAll(s => MenuSection.Create(
+      s.Name,
+      s.Description,
+      s.Items.ConvertAll(item => MenuItem.Create(
+        item.Name,
+        item.Description))));
 
-    // persist menu
-
-    // return menu
-    return default!;
+        
+    Menu menu = Menu.Create(
+      name: command.Name,
+      description: command.Description,
+      hostId: HostId.Create(command.HostId),
+      menuSections: menuSections);
+    
+    _menuRepository.Add(menu);
+    
+    return menu;
   }
 }

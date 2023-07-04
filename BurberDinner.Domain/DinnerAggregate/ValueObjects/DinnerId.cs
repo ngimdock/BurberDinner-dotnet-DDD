@@ -5,7 +5,7 @@ namespace BurberDinner.Domain.DinnerAggregate.Entities;
 
 public sealed class DinnerId: ValueObject {
 
-  private  Guid Value { get; }
+  public  Guid Value { get; }
 
   private DinnerId(Guid value) {
     Value = value;
