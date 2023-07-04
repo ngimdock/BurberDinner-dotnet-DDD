@@ -14,6 +14,10 @@ public sealed class MenuItemId : ValueObject
     return new MenuItemId(new Guid());
   }
 
+  public static MenuItemId Create(Guid value) {
+    return new MenuItemId(value);
+  }
+
   public override IEnumerable<object> GetEqualityComponents()
   {
     yield return Value;
