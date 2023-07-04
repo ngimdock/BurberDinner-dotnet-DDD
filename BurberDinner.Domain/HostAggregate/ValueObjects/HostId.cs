@@ -14,8 +14,8 @@ public sealed class HostId: ValueObject {
     return new HostId(new Guid());
   }
 
-  public static HostId Create(string value) {
-    return new HostId(Guid.Parse(value));
+  public static HostId Create(Guid value) {
+    return new HostId(value);
   }
 
   public override IEnumerable<object> GetEqualityComponents()
