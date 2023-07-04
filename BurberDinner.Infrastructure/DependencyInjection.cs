@@ -7,6 +7,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using BurberDinner.Application.Common.Interfaces.Persistence;
 using Microsoft.Extensions.Options;
+using BurberDinner.Infrastructure.Persistence;
+using BurberDinner.Infrastructure.Persistence.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace BurberDinner.Infrastructure;
 
@@ -27,6 +30,8 @@ public static class DependencyInjection {
     public static IServiceCollection AddPersistence(
       this IServiceCollection services) {
 
+      services.AddDbContext<BuberDinnerDbContext>(options => 
+        options.UseSqlServer(""));
       services.AddSingleton<IUserRepository, UserRepository>();
       services.AddSingleton<IMenuRepository, MenuRepository>();
       return services;

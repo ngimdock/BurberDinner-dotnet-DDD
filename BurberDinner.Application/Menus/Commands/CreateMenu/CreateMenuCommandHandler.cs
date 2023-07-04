@@ -33,6 +33,9 @@ public class CreateMenuCommandHandler{
       menuSections: menuSections);
     
     _menuRepository.Add(menu);
+
+
+    Console.Write(menu.HostId.Value);
     
     return menu;
   }
