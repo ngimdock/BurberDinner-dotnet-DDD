@@ -6,7 +6,7 @@ using BurberDinner.Domain.Common.Models;
 namespace BurberDinner.Domain.UserAggregate.ValueObjects;
 public sealed class UserId: ValueObject {
 
-  public Guid Value { get; }
+  public Guid Value { get; private set; }
 
   public UserId(Guid value) {
     Value = value;

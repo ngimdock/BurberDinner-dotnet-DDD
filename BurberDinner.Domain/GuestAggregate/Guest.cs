@@ -15,13 +15,13 @@ public sealed class Guest : AggregateRoot<GuestId>
   private List<BillId> _billIds = new();
   private List<MenuReviewId> _menuReviewIds = new();
   private List<Rating> _ratings = new();
-  public string FirstName { get; }
-  public string LastName { get; }
-  public string ProfileImage { get; }
-  public AverageRating AverageRating { get; }
-  public UserId UserId { get; }
-  public DateTime CreatedDateTime { get; }
-  public DateTime UpdatedDateTime { get; }
+  public string FirstName { get; private set; }
+  public string LastName { get; private set; }
+  public string ProfileImage { get; private set; }
+  public AverageRating AverageRating { get; private set; }
+  public UserId UserId { get; private set; }
+  public DateTime CreatedDateTime { get; private set; }
+  public DateTime UpdatedDateTime { get; private set; }
 
   private IReadOnlyList<DinnerId> UpcommingDinnerIds => _upcommingDinnerIds.AsReadOnly();
   private IReadOnlyList<DinnerId> PastDinnerIds => _pastDinnerIds.AsReadOnly();

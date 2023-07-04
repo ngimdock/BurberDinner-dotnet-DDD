@@ -5,7 +5,7 @@ using BurberDinner.Domain.Common.Models;
 namespace BurberDinner.Domain.MenuAggregate.ValueObjects;
 public sealed class MenuId : ValueObject  {
 
-  public Guid Value { get; }
+  public Guid Value { get; private set; }
 
   private MenuId(Guid value) {
     Value = value;

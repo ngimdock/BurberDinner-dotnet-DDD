@@ -4,7 +4,7 @@ namespace BurberDinner.Domain.BillAgregate.ValueObjects;
 
 public sealed class BillId: ValueObject {
 
-  public Guid Value { get; }
+  public Guid Value { get; private set; }
 
   public BillId(Guid value) {
     Value = value;

@@ -6,7 +6,7 @@ namespace BurberDinner.Domain.GuestAggregate.ValueObjects;
 
 public sealed class GuestId: ValueObject {
 
-  public Guid Value { get; }
+  public Guid Value { get; private set; }
 
   private GuestId(Guid value) {
     Value = value;

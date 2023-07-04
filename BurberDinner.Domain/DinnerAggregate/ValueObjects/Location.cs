@@ -5,10 +5,10 @@ namespace BurberDinner.Domain.DinnerAggregate.Entities;
 
 public sealed class Location: ValueObject{
 
-  public string Name { get; }
-  public string Address { get; }
-  public float Latitude { get; }
-  public float Longitude { get; }
+  public string Name { get; private set; }
+  public string Address { get; private set; }
+  public float Latitude { get; private set; }
+  public float Longitude { get; private set; }
 
   private Location(
     string name,

@@ -6,14 +6,14 @@ namespace BurberDinner.Domain.DinnerAggregate.Entities;
 
 public sealed class Reservation : AggregateRoot<ReservationId>
 {
-  public int GuestCount { get; }
+  public int GuestCount { get; private set; }
 
   private readonly ReservationStatus reservationStatus;
-  public GuestId GuestId { get; }
-  public BillId BillId { get; }
-  public DateTime ArrivalDateTime { get; }
-  public DateTime CreatedDateTime { get; }
-  public DateTime UpdatedDateTime { get; }
+  public GuestId GuestId { get; private set; }
+  public BillId BillId { get; private set; }
+  public DateTime ArrivalDateTime { get; private set; }
+  public DateTime CreatedDateTime { get; private set; }
+  public DateTime UpdatedDateTime { get; private set; }
   private Reservation(
     ReservationId reservationId,
     int guestCount,

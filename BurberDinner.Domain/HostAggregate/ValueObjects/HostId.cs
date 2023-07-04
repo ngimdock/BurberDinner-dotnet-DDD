@@ -4,7 +4,7 @@ using BurberDinner.Domain.Common.Models;
 namespace BurberDinner.Domain.HostAggregate.ValueObjects;
 public sealed class HostId: ValueObject {
 
-  public  Guid Value { get; }
+  public  Guid Value { get; private set; }
 
   private HostId(Guid value) {
     Value = value;

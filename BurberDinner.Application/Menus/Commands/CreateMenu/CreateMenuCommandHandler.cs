@@ -29,7 +29,7 @@ public class CreateMenuCommandHandler{
     Menu menu = Menu.Create(
       name: command.Name,
       description: command.Description,
-      hostId: HostId.Create(command.HostId),
+      hostId: HostId.Create(Guid.Parse(command.HostId)),
       menuSections: menuSections);
     
     _menuRepository.Add(menu);

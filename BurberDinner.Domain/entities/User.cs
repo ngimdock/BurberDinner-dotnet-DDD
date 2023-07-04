@@ -4,12 +4,12 @@ namespace BurberDinner.Domain.entities;
 
 public class User {
 
-  public Guid Id {get; set; } = Guid.NewGuid();
+  public Guid Id {get; private set; } = Guid.NewGuid();
 
-  public String FirstName { get; set; } = null!;
-  public String LastName { get; set; } = null!;
-  public String Email { get; set; } = null!;
-  public String Password { get; set; } = null!;
+  public String FirstName { get; private set; } = null!;
+  public String LastName { get; private set; } = null!;
+  public String Email { get; private set; } = null!;
+  public String Password { get; private set; } = null!;
 
   public User(String FirstName, String LastName, String Email, String Password) {
 

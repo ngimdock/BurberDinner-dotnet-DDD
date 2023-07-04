@@ -4,8 +4,8 @@ using BurberDinner.Domain.MenuAggregate.ValueObjects;
 namespace BurberDinner.Domain.MenuAggregate.Entities;
 public sealed class MenuItem : Entity<MenuItemId>
 {
-  public string Name { get; }
-  public string Description { get; }
+  public string Name { get; private set; }
+  public string Description { get; private set; }
   private MenuItem(
     MenuItemId menuSectionId,
     string name,

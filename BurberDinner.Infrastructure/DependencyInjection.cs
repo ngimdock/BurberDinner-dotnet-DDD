@@ -30,8 +30,8 @@ public static class DependencyInjection {
     public static IServiceCollection AddPersistence(
       this IServiceCollection services) {
 
-      services.AddDbContext<BuberDinnerDbContext>(options => 
-        options.UseSqlServer(""));
+      // services.AddDbContext<BuberDinnerDbContext>(options => 
+      //   options.UseSqlServer(""));
       services.AddSingleton<IUserRepository, UserRepository>();
       services.AddSingleton<IMenuRepository, MenuRepository>();
       return services;

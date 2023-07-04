@@ -4,7 +4,7 @@ using BurberDinner.Domain.Common.Models;
 namespace BurberDinner.Domain.MenuAggregate.ValueObjects;
 public sealed class MenuSectionId : ValueObject
 {
-  public Guid Value { get; }
+  public Guid Value { get; private set; }
 
   private MenuSectionId(Guid value) {
     Value = value;
