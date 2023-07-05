@@ -10,6 +10,7 @@ using Microsoft.Extensions.Options;
 using BurberDinner.Infrastructure.Persistence;
 using BurberDinner.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
+using BurberDinner.Infrastructure.Persistence.Interceptors;
 
 namespace BurberDinner.Infrastructure;
 
@@ -32,6 +33,7 @@ public static class DependencyInjection {
 
       // services.AddDbContext<BuberDinnerDbContext>(options => 
       //   options.UseSqlServer(""));
+      services.AddSingleton<PublishDomainEventsInterceptor>();
       services.AddSingleton<IUserRepository, UserRepository>();
       services.AddSingleton<IMenuRepository, MenuRepository>();
       return services;

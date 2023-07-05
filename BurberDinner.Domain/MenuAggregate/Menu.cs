@@ -52,7 +52,7 @@ public sealed class Menu : AggregateRoot<MenuId>
     List<MenuSection>? menuSections
     ) {
 
-    return new Menu(
+    var menu =  new Menu(
       MenuId.CreateUnique(),
       name,
       description,
@@ -61,6 +61,10 @@ public sealed class Menu : AggregateRoot<MenuId>
       menuSections is not null ? menuSections : new(),
       DateTime.UtcNow,
       DateTime.UtcNow);
+
+    menu.AddDomainEvent(new MenuCreated(menu));
+
+    return menu;
   }
 
   public void AddSection(MenuSection section) {
